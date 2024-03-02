@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food and Nutrition</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- header section -->
+    <header id="nav">
+      <div class="nav">
+        <div class="navleft">
+          <div class="navlogo">
+            <a href="">
+              <h2>Food & Nutrition Management System</h2>
+            </a>
+          </div>
+        </div>
+        <div class="navright">
+          <div class="navlist">
+            <ul>
+              <li class="navitem">
+                <a href="" class="navlink"
+                  ><img
+                    src="https://img.icons8.com/fluency-systems-regular/48/settings--v1.png"
+                    alt="settings--v1"
+                /></a>
+              </li>
+              <li class="navitem">
+                <a href="" class="navlink"
+                  ><img
+                    src="https://img.icons8.com/ios/50/blogger.png"
+                    alt="blogger"
+                /></a>
+              </li>
+              <li class="navitem">
+                <a href="" class="navlink"
+                  ><img
+                    src="https://img.icons8.com/windows/32/000000/user-male-circle.png"
+                    alt="user-male-circle"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- main section -->
+    <section id="main">
+      <div class="main">
+        <div class="main-top">
+          <div class="main-top-head">
+            <h2>Search Record</h2>
+          </div>
+          <div class="main-top-form">
+            <div class="main-forms">
+              <form action="/searchFood" method="post" class="form1 form">
+                <div class="formdiv">
+                  <label for="ID">Food ID:</label>
+                  <input
+                    type="number"
+                    placeholder="Enter Food ID"
+                    id="foodid"
+                    name="ID"
+                  /><br />
+                  <label for="name">Food Name:</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Food Name"
+                    id="foodName"
+                    name="name"
+                  /><br />
+                </div>
+                <button class="submit">Submit</button><br />
+              </form>
+            </div>
+            <div class="main-button">
+              <button><a href="/addfood">Add New Food Item</a></button>
+            </div>
+          </div>
+        </div>
+        <div class="main-bot">
+          <div class="main-table">
+            <table>
+              <thead>
+                <tr class="main-head">
+                  <th colspan="5">General Information:</th>
+                  <th colspan="6">Nutritional Information:</th>
+                  <th colspan="10">Additional Details:</th>
+                </tr>
+                <tr class="sub-head">
+                  <th class="action">Action</th>
+                  <th class="id">Id:</th>
+                  <th class="food-item-name">Food Item Name:</th>
+                  <th class="food-group">Food Group or Category:</th>
+                  <th class="description">Description:</th>
+                  <th class="calories">Calories:</th>
+                  <th class="macronutrients">Macronutrients:</th>
+                  <th class="micronutrients">Micronutrients:</th>
+                  <th class="fiber">Fiber:</th>
+                  <th class="sodium">Sodium:</th>
+                  <th class="cholesterol">Cholesterol:</th>
+                  <th class="serving-size">Serving Size:</th>
+                  <th class="allergens">Allergens:</th>
+                  <th class="ingredients">Ingredients:</th>
+                  <th class="preparation-methods">Preparation Methods:</th>
+                  <th class="certifications">Certifications:</th>
+                  <th class="country-of-origin">Country of Origin:</th>
+                  <th class="brand-or-manufacturer">Brand or Manufacturer:</th>
+                  <th class="dietary-restrictions">Dietary Restrictions:</th>
+                  <th class="health-benefits">Health Benefits:</th>
+                  <th class="best-practices">Best Practices:</th>
+                </tr>
+              </thead>
+              <tbody id="foodBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end main section -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/api/foods")
+          .then((response) => response.json())
+          .then((data) => {
+            const foodBody = document.getElementById("foodBody");
+
+            data.forEach((food) => {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+                    <td class="actiontd">
+                       <a href="/api/deleteitem/${food.ID}">Delete</a>
+                       <a href="/updateFood/${food.ID}${food.name}">Update</a>
+                    </td>
+                    <td class="id">${food.ID}</td>
+                    <td class="food-item-name">${food.name}</td>
+                    <td class="food-group">${food.foodGroup}</td>
+                    <td class="description">${food.description}</td>
+                    <td class="calories">${food.calories}</td>
+                    <td class="macronutrients">${food.macronutrients}</td>
+                    <td class="micronutrients">${food.micronutrients}</td>
+                    <td class="fiber">${food.fiber}</td>
+                    <td class="sodium">${food.sodium}</td>
+                    <td class="cholesterol">${food.cholesterol}</td>
+                    <td class="serving-size">${food.servingSize}</td>
+                    <td class="allergens">${food.allergens}</td>
+                    <td class="ingredients">${food.ingredients}</td>
+                    <td class="preparation-methods">${food.preparationMethods}</td>
+                    <td class="certifications">${food.certifications}</td>
+                    <td class="country-of-origin">${food.countryOfOrigin}</td>
+                    <td class="brand-or-manufacturer">${food.brandManufacturer}</td>
+                    <td class="dietary-restrictions">${food.dietaryRestrictions}</td>
+                    <td class="health-benefits">${food.healthBenefits}</td>
+                    <td class="best-practices">${food.bestPractices}</td>
+                    `;
+              foodBody.appendChild(tr);
+            });
+          })
+          .catch((error) =>
+            console.error("Error fetching student records:", error)
+          );
+      });
+    </script>
+  </body>
+</html>

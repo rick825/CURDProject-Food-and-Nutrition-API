@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Food</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header section -->
+    <header id="nav">
+      <div class="nav">
+        <div class="navleft">
+          <div class="navlogo">
+            <a href=""><h2>Food & Nutrition Management System</h2></a>
+          </div>
+        </div>
+        <div class="navright">
+          <div class="navlist">
+            <ul>
+              <li class="navitem">
+                <a href="" class="navlink"
+                  ><img
+                    src="https://img.icons8.com/fluency-systems-regular/48/settings--v1.png"
+                    alt="settings--v1"
+                /></a>
+              </li>
+              <li class="navitem">
+                <a href="" class="navlink"
+                  ><img
+                    src="https://img.icons8.com/ios/50/blogger.png"
+                    alt="blogger"
+                /></a>
+              </li>
+              <li class="navitem">
+                <a href="" class="navlink"
+                  ><img
+                    src="https://img.icons8.com/windows/32/000000/user-male-circle.png"
+                    alt="user-male-circle"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <!-- main section -->
+    <section id="main">
+      <div class="main addfoodmain">
+        <div class="main-top">
+          <div class="main-top-head">
+            <h2>Add New Record</h2>
+          </div>
+        </div>
+        <div class="main-top-form">
+          <div class="main-forms add-form">
+            <form action="/api/addnewitem" method="post" class="form addform">
+              <div class="formdiv">
+                <label for="name">Food Name:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Food Name"
+                  id="foodName"
+                  name="name"
+                /><br />
+                <label for="foodGroup">Food Group or Category:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Food Group or Category"
+                  id="foodGroup"
+                  name="foodGroup"
+                /><br />
+
+                <label for="description">Description:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Description"
+                  id="description"
+                  name="description"
+                /><br />
+
+                <label for="calories">Calories:</label>
+                <input
+                  type="number"
+                  placeholder="Enter Calories"
+                  id="calories"
+                  name="calories"
+                /><br />
+
+                <label for="macronutrients">Macronutrients:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Macronutrients"
+                  id="macronutrients"
+                  name="macronutrients"
+                /><br />
+
+                <label for="micronutrients">Micronutrients:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Micronutrients"
+                  id="micronutrients"
+                  name="micronutrients"
+                /><br />
+
+                <label for="fiber">Fiber:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Fiber"
+                  id="fiber"
+                  name="fiber"
+                /><br />
+
+                <label for="sodium">Sodium:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Sodium"
+                  id="sodium"
+                  name="sodium"
+                /><br />
+
+                <label for="cholesterol">Cholesterol:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Cholesterol"
+                  id="cholesterol"
+                  name="cholesterol"
+                /><br />
+
+                <label for="servingSize">Serving Size:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Serving Size"
+                  id="servingSize"
+                  name="servingSize"
+                /><br />
+
+                <label for="allergens">Allergens:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Allergens"
+                  id="allergens"
+                  name="allergens"
+                /><br />
+
+                <label for="ingredients">Ingredients:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Ingredients"
+                  id="ingredients"
+                  name="ingredients"
+                /><br />
+
+                <label for="preparationMethods">Preparation Methods:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Preparation Methods"
+                  id="preparationMethods"
+                  name="preparationMethods"
+                /><br />
+
+                <label for="certifications">Certifications:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Certifications"
+                  id="certifications"
+                  name="certifications"
+                /><br />
+
+                <label for="countryOfOrigin">Country of Origin:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Country of Origin"
+                  id="countryOfOrigin"
+                  name="countryOfOrigin"
+                /><br />
+
+                <label for="brandManufacturer">Brand or Manufacturer:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Brand or Manufacturer"
+                  id="brandManufacturer"
+                  name="brandManufacturer"
+                /><br />
+
+                <label for="dietaryRestrictions">Dietary Restrictions:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Dietary Restrictions"
+                  id="dietaryRestrictions"
+                  name="dietaryRestrictions"
+                /><br />
+
+                <label for="healthBenefits">Health Benefits:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Health Benefits"
+                  id="healthBenefits"
+                  name="healthBenefits"
+                /><br />
+
+                <label for="bestPractices">Best Practices:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Best Practices"
+                  id="bestPractices"
+                  name="bestPractices"
+                /><br />
+              </div>
+              <button class="submit">Submit</button><br/>
+            </form>
+          </div>
+          <div class="main-button">
+            <button><a href="/">See Main List</a></button>
+           </div>
+        </div>
+      </div>
+    </section>
+    <!-- end main section -->
+  </body>
+</html>
